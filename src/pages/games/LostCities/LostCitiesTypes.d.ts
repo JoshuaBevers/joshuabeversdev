@@ -39,9 +39,10 @@ export interface LostCitiesStore {
     player1: Player,
     player2: Player,
     ActivePlayer: any
+    ActiveRound: number,
     updatePlayerBoard(player: string, card: Card): void,
     updateRoundScore(player: string, round: number, score: number): void,
     updateTotalScore(player: string, score: number): void,
-    changeActivePlayer(): void,
-    changeActiveRound(): void,
+    changeActivePlayer(specificPlayer?: Player): void,
+    changeActiveRound(Round: number): void,
 }

@@ -19,7 +19,7 @@ export const useLostCitiesStore = create<LostCitiesStore>((set, get) => ({
 
     // ActivePlayer: get().player1,
     ActivePlayer: undefined,
-    ActiveRound: 0,
+    ActiveRound: 1,
 
 
     updatePlayerBoard: (player: string, card) => {
@@ -27,19 +27,35 @@ export const useLostCitiesStore = create<LostCitiesStore>((set, get) => ({
     },
 
     updateRoundScore(player, round, score) {
-        console.log(get().player1);
+
     },
 
     updateTotalScore(player, score) {
 
     },
 
-    changeActivePlayer() {
+    changeActivePlayer(specificPlayer?) {
+
+        if (specificPlayer) {
+            set({ ActivePlayer: specificPlayer })
+            return
+        }
+
+        if (get().ActivePlayer === get().player1) {
+            set({ ActivePlayer: get().player2 })
+        } else {
+            set({ ActivePlayer: get().player1 })
+        }
 
     },
 
-    changeActiveRound() {
-        console.log(get().ActivePlayer)
+    changeActiveRound(Round) {
+        if (Round === 0 || Round === 4) {
+            return
+        }
+        set(() => ({
+            ActiveRound: Round
+        }))
     }
 
 }));

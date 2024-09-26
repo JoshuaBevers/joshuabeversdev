@@ -10,12 +10,13 @@
     "preview": "vite preview",
     "network": "vite --host",
     "test": "vitest watch",
-    "coverage": "vitest coverage" 
+    "coverage": "vitest coverage"
   },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.1"
+    "react-router-dom": "^6.26.1",
+    "zustand": "^5.0.0-rc.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",

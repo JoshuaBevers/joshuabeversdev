@@ -15,7 +15,7 @@ export type Card = {
 }
 
 export interface Player {
-    name: string; // probably just player 1
+    playerName: string; // probably just player 1
     totalScore: number;
     RoundState: Round[];
 }
@@ -38,8 +38,10 @@ export interface PlayerBoard {
 export interface LostCitiesStore {
     player1: Player,
     player2: Player,
-    ActivePlayer: Player,
+    ActivePlayer: any
     updatePlayerBoard(player: string, card: Card): void,
     updateRoundScore(player: string, round: number, score: number): void,
-    updateTotalScore(player: string, score: number): void
+    updateTotalScore(player: string, score: number): void,
+    changeActivePlayer(): void,
+    changeActiveRound(): void,
 }

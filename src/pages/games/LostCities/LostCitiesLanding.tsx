@@ -1,12 +1,20 @@
 import React from 'react';
+import LostCitiesGameBoard from './components/LostCitiesGameBoard';
+import { RoundAndPlayer } from './components/RoundAndPlayer';
+import { LostCitiesScore } from './components/LostCitiesScore';
 
 function LostCityLanding() {
-  return (
-    <div >
-      <h1>Lost Cities</h1>
-      <p>Play the card game Lost Cities online with friends or against the computer.</p>
-    </div>
-  );
+    return (
+        < >
+
+            <LostCitiesScore />
+
+            <LostCitiesGameBoard />
+
+            <RoundAndPlayer />
+
+        </>
+    );
 }
 
 export default LostCityLanding;

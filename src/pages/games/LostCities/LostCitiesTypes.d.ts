@@ -14,11 +14,27 @@ export type Card = {
     isMatched: boolean
 }
 
-export type PlayerBoard = {
-    red: Card[],
-    blue: Card[],
-    yellow: Card[],
-    green: Card[],
-    silver: Card[],
-    purple: Card[],
+export interface Player {
+    name: string; // probably just player 1
+    totalScore: number;
+    RoundState: Round[];
+}
+
+export interface Round {
+    RoundScore: number;
+    PlayerBoard: PlayerBoard;
+}
+
+export interface PlayerBoard {
+    red: Card[];
+    blue: Card[];
+    yellow: Card[];
+    green: Card[];
+    silver: Card[];
+    purple: Card[];
+}
+
+
+export interface LostCitiesStore {
+
 }

@@ -1,10 +1,10 @@
-import { Card } from '../LostCitiesTypes';
+import { Card, PlayerBoard } from '../LostCitiesTypes';
 
 /**
  * @description Calculates the score for a player in a given round.
- * @param ColorState A color state for a player in a given round.
+ * @param SuiteState A color state for a player in a given round.
  */
-export function CalculateColorScore(ColorState: Card[]): number {
+export function CalculateColorScore(SuiteState: Card[]): number {
     // for every wagered card, the end score for that color is increased by 2x, 3x, 4x for each wager card. EG. 2 wager cards = 3x the score for that color
     // if a color has no flipped cards, then the score is 0 for that color.
     // if a color has eight or more cards flipped, then the score is increased by 20 points after multiplying the wagered cards.
@@ -12,16 +12,16 @@ export function CalculateColorScore(ColorState: Card[]): number {
     let wagerMultiplier = 0;
     let flippedCards = 0;
 
-    for (let i = 0; i < ColorState.length; i++) {
-        if (ColorState[i].isWager && ColorState[i].isFlipped) {
+    for (let i = 0; i < SuiteState.length; i++) {
+        if (SuiteState[i].isWager && SuiteState[i].isFlipped) {
             wagerMultiplier++;
         }
-        if (ColorState[i].isFlipped) {
+        if (SuiteState[i].isFlipped) {
             flippedCards++;
         }
 
-        if (ColorState[i].isFlipped && !ColorState[i].isWager) {
-            score += ColorState[i].value;
+        if (SuiteState[i].isFlipped && !SuiteState[i].isWager) {
+            score += SuiteState[i].value;
         }
 
     }
@@ -53,6 +53,12 @@ export function CalculateColorScore(ColorState: Card[]): number {
     return score;
 }
 
+
+/**
+ * @description builds a suite of cards for a given color.
+ * @param color the color the suite of cards should be.
+ * @returns a lost cities suite of colors, wagers cards, value cards 2-10
+ */
 export function buildColor(color: string) {
     let CardArray: Card[] = []
     for (let i = -1; i <= 10; i++) {

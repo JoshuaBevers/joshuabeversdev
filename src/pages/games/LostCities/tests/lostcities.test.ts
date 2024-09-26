@@ -1,4 +1,4 @@
-import { describe, expect, it, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 // functions
 import { CalculateColorScore, buildColor } from '../functions/LostCitiesMath'
@@ -7,7 +7,50 @@ import { CalculateColorScore, buildColor } from '../functions/LostCitiesMath'
 //types
 import { Card } from '../LostCitiesTypes'
 
+//tests
 
+// building deck 
+
+describe('Build Color', () => {
+  it('Build Red Color', () => {
+    let colorCounter = 2; // card values start at 2.
+    let wagerCounter = 0;
+
+    buildColor('red').forEach((card) => {
+      expect(card.color).toBe('red')
+      if (card.isWager) {
+        wagerCounter++;
+      } else {
+        expect(card.value).toBeLessThanOrEqual(10);
+        expect(card.value).equal(colorCounter);
+        colorCounter++;
+      }
+      expect(card.isFlipped).toBe(false);
+
+    })
+
+  })
+
+  it('Build purple Color', () => {
+    let colorCounter = 2; // card values start at 2.
+    let wagerCounter = 0;
+
+    buildColor('purple').forEach((card) => {
+      expect(card.color).toBe('purple')
+      if (card.isWager) {
+        wagerCounter++;
+      } else {
+        expect(card.value).toBeLessThanOrEqual(10);
+        expect(card.value).equal(colorCounter);
+        colorCounter++;
+      }
+      expect(card.isFlipped).toBe(false);
+
+    })
+
+  })
+})
+// player color score.
 
 describe('Calculate Player Color Score', () => {
   it('Player score should be 0', () => {

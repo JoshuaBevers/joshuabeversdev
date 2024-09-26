@@ -29,7 +29,7 @@ const LostCitiesRouter: RouteObject = {
   element: <App />,
 
   children: [{
-    path: "lost-cities",
+    path: "/lostcities",
     async lazy() {
       const module = await import("./pages/games/LostCities/LostCitiesLanding");
       return { Component: module.default };

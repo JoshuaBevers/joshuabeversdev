@@ -14,3 +14,5 @@ Tools during developement process needed for new machines:
 AWS CLI
 git
 Terraform - Terraform v1.9.5 on windows_amd64
+
+# Sometimes we feel small.

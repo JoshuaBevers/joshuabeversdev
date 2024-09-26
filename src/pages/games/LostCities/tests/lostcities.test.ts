@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 // functions
-import { CalculateColorScore, buildColor } from '../functions/LostCitiesMath'
+import { CalculateColorScore, buildColor } from '../functions/LostCitiesFunctions'
 
 
 //types

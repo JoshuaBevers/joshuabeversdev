@@ -1,4 +1,4 @@
-import { Card, PlayerBoard } from '../LostCitiesTypes';
+import { Card, PlayerBoard, Round } from '../LostCitiesTypes';
 
 /**
  * @description Calculates the score for a player in a given round.
@@ -86,4 +86,28 @@ export function buildColor(color: string) {
 
     }
     return CardArray;
+}
+
+export function buildPlayerBoard(): PlayerBoard {
+    let playerBoard: PlayerBoard = {
+        red: buildColor('red'),
+        blue: buildColor('blue'),
+        yellow: buildColor('yellow'),
+        green: buildColor('green'),
+        silver: buildColor('silver'),
+        purple: buildColor('purple')
+    }
+    return playerBoard;
+}
+
+export function buildInitialRounds() {
+    let Rounds: Round[] = []
+    for (let i = 0; i < 3; i++) {
+        let round = {
+            RoundScore: 0,
+            PlayerBoard: buildPlayerBoard()
+        }
+        Rounds.push(round);
+    }
+    return Rounds;
 }
